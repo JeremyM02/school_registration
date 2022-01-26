@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     h3 Courses
+    a(href='/courses/add') Add New Course
     table
         thead
             tr
@@ -12,7 +13,7 @@ block content
         tbody
             each course in courses
                 tr
-                    td Hello
+                    td= course.name
                     td= course.instructor_name
                     td= course.department
                     td
