@@ -1,4 +1,5 @@
 const {Course} = require('../models');
+const departments = ['Math', 'Computer Science', 'English', 'Music', 'Art', 'PE', 'World Languages', 'Social Studies', 'Science'].sort();
 
 //view all
 module.exports.viewAll = async function(req, res){
@@ -17,7 +18,10 @@ module.exports.viewProfile = async function(req, res) {
 //add
 
 //render edit form
-
+module.exports.renderEditForm = async function(req, res) {
+    const course = await Course.findByPk(req.params.id);
+    res.render('course/edit', {course, departments});
+};
 //update
 
 //delete
